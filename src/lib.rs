@@ -15,17 +15,16 @@ impl Softdevice {
     }
 
     /// Create the softdevice from symbols defined in the linker script.
-    pub fn from_linkerfile() -> Self {
+    #[inline]
+    pub fn from_linkerfile() -> &'static Self {
         extern "C" {
             static __softdevice: Softdevice;
         }
 
         // Safety: If the linker variable exists, it is assumed that the user has added it
         //         according to requirements. Else there will be a linker error.
-        unsafe {
-            let start = &__softdevice as *const Softdevice;
-
-            core::ptr::read(start)
-        }
+        unsafe { &__softdevice }
     }
+
+    // TODO: Add safe access methods here.
 }
