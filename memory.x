@@ -8,11 +8,13 @@ MEMORY
 
 /*
 
-Do this in your app to define the softdevice:
+Do this in your application's linker script to define the softdevice:
 
 MEMORY
 {
-    SOFTDEVICE :       ORIGIN = addr, LENGTH = 16K
+    ...
+    SOFTDEVICE : ORIGIN = addr, LENGTH = same_as_above
+    ...
 }
 
 __softdevice = ORIGIN(SOFTDEVICE);

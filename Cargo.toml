@@ -6,6 +6,10 @@ edition = "2021"
 
 [dependencies]
 
+[features]
+default = []
+build-softdevice = []
+
 # this lets you use `cargo fix`!
 [[bin]]
 name = "softdevice"
