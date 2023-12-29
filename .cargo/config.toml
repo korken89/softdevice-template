@@ -12,4 +12,5 @@ rustflags = [
 
 [alias]
 build-softdevice = "objcopy --release --bin softdevice --features build-softdevice -- softdevice.elf"
+size-softdevice = "size --release --bin softdevice --features build-softdevice"
 build-softdevice-bin = "objcopy --release --bin softdevice --features build-softdevice -- -O binary softdevice.bin"

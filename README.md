@@ -17,6 +17,8 @@ application. E.g.:
 3. Add the methods you need to `Softdevice` in `src/lib.rs`.
 4. Implement the methods in `src/bin/softdevice.rs`
 
+To see the current size of the softdevice, run `cargo size-softdevice`.
+
 ## Using the softdevice
 
 1. Copy the "userspace" example in `memory.x` to you application linker script.
