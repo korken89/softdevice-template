@@ -4,3 +4,7 @@ rustflags = [
   "-C", "link-arg=-Tlink.x",
   "-C", "link-arg=-Map=app.map",
 ]
+
+[alias]
+build-softdevice = "objcopy --release --bin softdevice -- softdevice.elf"
+build-softdevice-bin = "objcopy --release --bin softdevice -- -O binary softdevice.bin"
