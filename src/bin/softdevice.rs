@@ -9,10 +9,10 @@ pub extern "C" fn test() -> i32 {
 }
 
 /// Vector-table definition, fill in all parts here.
-#[link_section = ".vector_table.entries"]
+#[link_section = ".vector_table.softdevice"]
 #[no_mangle]
 #[used]
-pub static __ENTRIES: Softdevice = Softdevice::from_pointers(test);
+pub static __SOFTDEVICE: Softdevice = Softdevice::from_pointers(test);
 
 // A panic handler is required for compilation.
 #[panic_handler]

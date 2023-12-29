@@ -5,6 +5,7 @@
 /// Main API. Holds the vectors in flash and safe API to those.
 #[repr(C)]
 pub struct Softdevice {
+    // TODO: Add API functions here.
     test: unsafe extern "C" fn() -> i32,
 }
 
@@ -26,5 +27,5 @@ impl Softdevice {
         unsafe { &__softdevice }
     }
 
-    // TODO: Add safe access methods here.
+    // TODO: Add safe API access methods here.
 }

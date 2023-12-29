@@ -1,6 +1,6 @@
 INCLUDE memory.x
 
-EXTERN(__ENTRIES); /* `static` variable with table entries */
+EXTERN(__SOFTDEVICE); /* `static` variable with table entries */
 
 /* # Sections */
 SECTIONS
@@ -10,7 +10,7 @@ SECTIONS
   {
     __vector_table = .;
 
-    KEEP(*(.vector_table.entries)); /* this is the `__ENTRIES` symbol */
+    KEEP(*(.vector_table.softdevice)); /* this is the `__SOFTDEVICE` symbol */
   } > FLASH
 
   /* ### .text */

@@ -1,4 +1,8 @@
-/* Softdevice specification, update ORIGIN and LENGTH for your application */
+/* 
+Softdevice specification, update ORIGIN and LENGTH for your application.
+
+Note that the RAM is set to 0 size. If you need RAM, make sure it is NOT overlapping with application RAM.
+*/
 
 MEMORY
 {
@@ -13,7 +17,7 @@ Do this in your application's linker script to define the softdevice:
 MEMORY
 {
     ...
-    SOFTDEVICE : ORIGIN = addr, LENGTH = same_as_above
+    SOFTDEVICE : ORIGIN = addr_as_above, LENGTH = length_as_above
     ...
 }
 
