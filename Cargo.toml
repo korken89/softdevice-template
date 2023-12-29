@@ -1,0 +1,49 @@
+[package]
+name = "softdevice_template"
+version = "0.1.0"
+authors = ["Emil Fresk <emil.fresk@gmail.com>"]
+edition = "2021"
+
+[dependencies]
+
+# this lets you use `cargo fix`!
+[[bin]]
+name = "softdevice"
+test = false
+bench = false
+
+[profile.dev]
+opt-level = 1
+codegen-units = 16
+debug = true
+lto = false
+
+[profile.release]
+codegen-units = 1
+debug = 2
+debug-assertions = false # <-
+incremental = false
+lto = 'fat'
+# opt-level = 3 # <-
+opt-level = "s"     # optimize for size
+overflow-checks = false # <-
+
+# `syn` and other proc-macro crates take very long to build when optimized
+# this disables optimizations for them reducing the time it takes to build the
+# whole dependency graph by ~80%
+[profile.dev.build-override]
+codegen-units = 16
+debug = false
+debug-assertions = false
+incremental = true
+opt-level = 0
+overflow-checks = false
+
+[profile.release.build-override]
+codegen-units = 16
+debug = false
+debug-assertions = false
+incremental = true
+opt-level = 0
+overflow-checks = false
+
